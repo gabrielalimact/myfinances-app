@@ -5,6 +5,7 @@ import { COLORS } from '../constants'
 import { Ionicons } from '@expo/vector-icons';
 import InputStyled from '../components/input';
 import BottomButtonsLogin from '../components/bottomButtonsLogin';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 
 const Login = () => {
@@ -19,13 +20,14 @@ const Login = () => {
 
           <Text style={styles.title}>Let's sign you in.</Text>
           <Text style={styles.subtitle}>Welcome back! You've been missed.</Text>
-
-          <View style={styles.inputView}>
-            <InputStyled label="Email" type='email-address' placeholder='Your email' />
-            <InputStyled label="Password" secureTextEntry={true} placeholder='Password'/>
-          </View>
+          
+          <KeyboardAwareScrollView scrollEnabled={false}>
+            <View style={styles.inputView}>
+              <InputStyled label="Email" type='email-address' placeholder='Your email' />
+              <InputStyled label="Password" secureTextEntry={true} placeholder='Password'/>
+            </View>
+          </KeyboardAwareScrollView>
         </View>
-
         <BottomButtonsLogin isHome={true} buttonText='Sign in'/>
     </SafeAreaView>
   )

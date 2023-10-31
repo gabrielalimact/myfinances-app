@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { View, TextInput, StyleSheet, Text } from 'react-native';
+import { View, TextInput, StyleSheet, Text, KeyboardAvoidingView } from 'react-native';
 import { COLORS } from '../constants';
+
 
 const InputStyled = (props) => {
   const [isFocused, setIsFocused] = useState(false);
@@ -16,13 +17,14 @@ const InputStyled = (props) => {
   const inputStyle = isFocused ? [styles.input, styles.inputFocused] : styles.input;
 
   return (
-    <View>
+    <KeyboardAvoidingView>
+      
       <Text style={styles.label}>{props.label}</Text>
       <TextInput style={inputStyle} {...props} keyboardType={props.type}
         onFocus={handleFocus}
         onBlur={handleBlur}
       />
-    </View>
+    </KeyboardAvoidingView>
   )
 }
 

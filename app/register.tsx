@@ -5,6 +5,7 @@ import { COLORS } from '../constants'
 import { Ionicons } from '@expo/vector-icons';
 import InputStyled from '../components/input';
 import BottomButtonsLogin from '../components/bottomButtonsLogin';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 
 const Register = () => {
@@ -14,6 +15,7 @@ const Register = () => {
 
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white}}>
+      <KeyboardAwareScrollView>
         <View style={styles.container}>
           <Ionicons name="ios-arrow-undo-outline" size={30} color="black" onPress={handleGoBack} />
 
@@ -22,14 +24,15 @@ const Register = () => {
             <Text style={styles.subtitle}>Welcome! Create an account to enjoy.</Text>
           </View>
 
-          <View style={styles.inputView}>
-            <InputStyled label="Name" placeholder='Your name' />
-            <InputStyled label="Email" type='email-address' placeholder='Your email' />
-            <InputStyled label="Password" secureTextEntry={true} placeholder='Password'/>
-          </View>
+            <View style={styles.inputView}>
+              <InputStyled label="Name" placeholder='Your name' />
+              <InputStyled label="Email" type='email-address' placeholder='Your email' />
+              <InputStyled label="Password" secureTextEntry={true} placeholder='Password'/>
+            </View>
         </View>
-        
-        <BottomButtonsLogin isHome={true} buttonText='Sign up'/>
+
+      </KeyboardAwareScrollView>
+      <BottomButtonsLogin isHome={true} buttonText='Sign up'/>
     </SafeAreaView>
   )
 }
