@@ -37,6 +37,13 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.tertiary,
     padding: 20,
     borderRadius: 10,
+    shadowColor: COLORS.gray,
+    shadowOffset: {
+      width: 4,
+      height: 4,
+    },
+    shadowOpacity: 0.5,
+    shadowRadius: 4,
   },
   buttonText: {
     color: '#fff',
